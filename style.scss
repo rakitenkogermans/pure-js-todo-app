@@ -1,0 +1,49 @@
+$blue-color: #185a9d;
+$green-color: #43cea2;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html { height: 100%; }
+body {
+  background: $green-color;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(290deg, $blue-color, $green-color);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(290deg, $blue-color, $green-color); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //position: absolute;
+  min-height: 100%;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+}
+
+header {
+  font-size: 2rem;
+}
+
+header, form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input, form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: #ffffff;
+}
+
+form button {
+  width: 3rem;
+  color: $green-color;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+form button:hover {
+  color: #ffffff;
+  background: $green-color;
+}
