@@ -8,12 +8,22 @@ window.document.addEventListener('DOMContentLoaded', fetchFromLocalStorage);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 selectOption.addEventListener('click', filterTodo);
+todoInput.addEventListener('keyup', inputCheck);
 
+function inputCheck() {
+    if (todoInput.value.length > 0) {
+        todoButton.disabled = false;
+    }
+    if (todoInput.value.length < 1) {
+        todoButton.disabled = true;
+    }
+}
 function addTodo(event) {
     // Prevent from submitting
     event.preventDefault();
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
+    todoDiv.classList.add('scalein');
 
     // create li element and add class and add inside div
     const newTodo = document.createElement('li');
@@ -33,9 +43,13 @@ function addTodo(event) {
 
     // add div to list class
     todoList.appendChild(todoDiv);
+    todoDiv.addEventListener('animationend', () => {
+        todoDiv.classList.remove('scalein');
+    })
     // save to localstorage
     saveToLocalStorage(todoInput.value);
     todoInput.value = '';
+    inputCheck();
 }
 
 function deleteCheck(event) {
@@ -122,6 +136,7 @@ function fetchFromLocalStorage() {
         // add div to list class
         todoList.appendChild(todoDiv);
     })
+    inputCheck();
 }
 
 function deleteLocalStorageTodo(todo) {

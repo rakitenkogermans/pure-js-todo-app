@@ -4,20 +4,19 @@
   padding: 0;
 }
 
-html {
-  height: 100%;
-}
-
 body {
-  background: #43cea2;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(290deg, #185a9d, #43cea2);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(290deg, #185a9d, #43cea2);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  min-height: 100%;
   color: #ffffff;
   font-family: "Oswald", sans-serif;
+}
+
+.bg-gradient {
+  position: fixed;
+  background: #43cea2;
+  background: -webkit-linear-gradient(290deg, #185a9d, #43cea2);
+  background: linear-gradient(290deg, #185a9d, #43cea2);
+  height: 100vh;
+  width: 100%;
+  z-index: -10;
 }
 
 header {
@@ -51,6 +50,15 @@ form button:hover {
   background: #43cea2;
 }
 
+button:disabled, button[disabled] {
+  color: #666666;
+}
+
+button:disabled:hover, button[disabled]:hover {
+  cursor: not-allowed;
+  background: #666666;
+}
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -73,6 +81,10 @@ form button:hover {
   overflow: hidden;
   height: 50px;
   transition: all 0.5s ease;
+}
+
+.scalein {
+  animation: scalein 0.5s forwards;
 }
 
 .todo li {
@@ -149,6 +161,17 @@ select {
 .select:hover::after {
   background: #ffffff;
   color: #43cea2;
+}
+
+@keyframes scalein {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
